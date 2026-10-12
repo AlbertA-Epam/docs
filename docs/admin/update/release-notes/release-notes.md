@@ -27,7 +27,7 @@ Review every release between your current and target version that has a **Breaki
 ## October 2026 {#2026-10}
 
 <details className="release" id="v2-58-0">
-<summary><span className="release__version">CodeMie 2.58.0</span><span className="release__date">Oct 12, 2026</span><span className="release__no-action">No admin action required</span></summary>
+<summary><span className="release__version">CodeMie 2.58.0</span><span className="release__date">Oct 12, 2026</span><span className="badge badge--warning">Config changes</span></summary>
 
 **Release Date:** October 12, 2026 · [GitHub Tag ↗](https://github.com/codemie-ai/codemie/releases/tag/2.58.0)
 
@@ -37,7 +37,15 @@ No third-party component updates in this release.
 
 <h3>Configuration Changes</h3>
 
-No breaking configuration changes were introduced in this release.
+**Code Executor** — the meaning of `CODE_EXECUTOR_SECURITY_THRESHOLD` values is corrected. This applies only if the Code Executor tool is enabled.
+
+Previously the values were inverted: `LOW` enforced the strictest policy and `HIGH` the most permissive. They now match the parameter name: `LOW` is permissive and `HIGH` is the most restrictive. The default value changed from `LOW` to `HIGH`, which enforces the same policy the old default did.
+
+**Action required** — only if `CODE_EXECUTOR_SECURITY_THRESHOLD` is set explicitly:
+
+- Previously set to `LOW`: change it to `HIGH` to keep the same enforcement level.
+- Previously set to `HIGH`: change it to `LOW` to keep the same enforcement level.
+- Not set, or the Code Executor tool is disabled: no action required.
 
 </details>
 
